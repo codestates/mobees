@@ -1,19 +1,16 @@
-.App {
-  text-align: center;
-}
 .header {
   width: 100%;
-  height: 85px;
+  height: 90px;
   border-bottom: solid 1px #8b8585;
   position: fixed;
   top: 0;
   left: 0;
   z-index: 9999;
-  background-color: darkgoldenrod;
+  background-color: rgb(255, 255, 255);
 }
 
 .header_div {
-  width: 70%;
+  width: 1024px;
   height: 65px;
   background-color: darkorchid;
   position: absolute;
@@ -58,37 +55,38 @@
 
 .section {
   width: 100%;
-  height: 100vh;
-  padding-top: 9vh;
-  background-color: #86aab3;
+  height: 100%;
+  padding-top: 91px;
+  /* background-color: #86aab3; */
 }
 
 .gerne {
   width: 100%;
   height: 15vh;
-  background-color: darkorange;
+  /* background-color: darkorange; */
   position: relative;
 }
 
 .gerne_list {
-  width: 70%;
+  width: 1024px;
   height: 10vh;
   margin: 0 auto;
-  background-color: darkorchid;
+  border: 1px solid #8b8585;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.movie {
+
+/* .movie {
   width: 100%;
   height: 85vh;
   margin: 0 auto;
   background-color: rgb(181, 131, 71);
   position: relative;
-}
-.movie_list {
-  width: 70%;
+} */
+/* .movie_list {
+  width: 1024px;
   height: 75vh;
   margin: 0 auto;
   background-color: rgb(202, 160, 223);
@@ -96,13 +94,29 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+} */
+
+/* .movie_detail {
+  width: 900px;
+  margin: 0 auto;
+  height: 50%;
+  background-color: aquamarine;
+} */
+
+.more {
+  width: 60px;
+  height: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin: 50px auto 65px auto;
 }
 
 .footer {
   width: 100%;
-  height: 140px;
-  background-color: rgb(41, 133, 167);
-  border-top: solid 1px #a25252;
+  height: 160px;
+  /* background-color: rgb(41, 133, 167); */
+  border-top: solid 1px #8b8585;
   /* position: relative; */
 }
 
@@ -110,8 +124,8 @@
   width: 120px;
   height: 50px;
   margin: 0 auto;
-  background-color: darksalmon;
-  margin-top: 20px;
+  border: 1px solid #8b8585;
+  margin-top: 30px;
   /* position: absolute; */
 }
 
@@ -119,5 +133,5 @@
   width: 120px;
   height: 50px;
   margin: 0 auto;
-  background-color: rgb(147, 83, 62);
+  border: 1px solid #8b8585;
 }
