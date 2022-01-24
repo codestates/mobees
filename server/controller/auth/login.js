@@ -1,5 +1,5 @@
 const { user } = require("../../models");
-const { generateAccessToken, sendAccessToken } = require("../tokenFunction");
+const { generateAccessToken, sendAccessToken } = require("../tokenFunctions");
 
 module.exports = (req, res) => {
   //로그인 정보를 통해 사용자 인증 후 토큰을 전달합니다.

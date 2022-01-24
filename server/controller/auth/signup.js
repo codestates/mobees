@@ -6,8 +6,9 @@ module.exports = (req, res) => {
   // 이미 존재하는 이메일일 경우 =>  상태코드 409
   // 회원 정보가 제대로 입력되지 않았으면 => 상태코드 422
 
-  const { email, user_name, password, phone_number, nickname } = req.body;
-  if (!email || !user_name || !password || !phone_number || !nickname) {
+  const { email, user_name, password, phone_number, nickname, birthday } =
+    req.body;
+  if (!email || !user_name || !password || !nickname) {
     return res
       .status(422)
       .send({ message: "Insufficient parameters supplied" });
@@ -26,7 +27,6 @@ module.exports = (req, res) => {
             email,
             password,
             user_name,
-            phone_number,
             nickname,
           })
           .then((data) => {

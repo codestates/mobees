@@ -8,13 +8,13 @@ module.exports = (sequelize, DataTypes) => {
       models.post.hasMany(models.comment);
 
       models.post.belongsToMany(models.genre, {
-        through: models.posts_genres,
+        through: "Post_Genre",
         foreignKey: "post_id",
         onUpdate: "CASCADE",
         onDelete: "CASCADE",
         sourceKey: "id",
       });
-      models.post.sync({ force: true, match: /_test$/ });
+      // models.post.sync({ force: true, match: /_test$/ });
     }
   }
   post.init(
