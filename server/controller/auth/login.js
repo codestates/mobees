@@ -1,7 +1,7 @@
 const { user } = require("../../models");
 const { generateAccessToken, sendAccessToken } = require("../tokenFunctions");
 
-module.exports = (req, res) => {
+module.exports = async (req, res) => {
   //로그인 정보를 통해 사용자 인증 후 토큰을 전달합니다.
   const { email, password } = req.body;
   if (!email || !password) {
@@ -22,12 +22,15 @@ module.exports = (req, res) => {
 
       const userInfo = result.dataValues;
       delete userInfo.password;
+      // console.log(userInfo);
 
       const accessToken = generateAccessToken(userInfo);
+      console.log(accessToken);
       sendAccessToken(res, accessToken);
       res.status(200).send({ message: "ok" });
     })
     .catch((err) => {
-      return res.status(500).send({ message: "Internet server error" });
+      console.log(err);
+      return res.status(500).send({ message: "Internal server error" });
     });
 };
