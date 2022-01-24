@@ -3,7 +3,7 @@ const app = express();
 const indexRouter = require("./routes");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
-const port = 3001;
+const port = 80;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false })); // post 요청 바디 추출
