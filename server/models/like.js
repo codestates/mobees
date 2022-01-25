@@ -5,8 +5,12 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class like extends Model {
     static associate(models) {
-      models.like.belongsTo(models.user);
-      models.like.belongsTo(models.post);
+      models.like.belongsTo(models.user, {
+        foreignKey: "user_id",
+      });
+      models.like.belongsTo(models.post, {
+        foreignKey: "post_id",
+      });
     }
   }
   like.init({

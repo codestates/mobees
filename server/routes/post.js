@@ -2,8 +2,8 @@ const router = require('express').Router();
 const controller = require('./../controller');
 
 router.post('/', controller.posting)                                 
-router.post('/comment/:post-id', controller.comment)        // post/comment
-router.post('/like/:post-id', controller.like)              // post/like
-router.post('/l:post-id', controller.deletePosting)         // post/like
+router.post('/comment/:postid', controller.comment)        // post/comment
+router.get('/like/:postid', controller.like)              // post/like
+router.delete('/:postid', controller.deletePosting)         // post/like
 
 module.exports = router;

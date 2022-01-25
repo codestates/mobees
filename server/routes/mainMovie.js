@@ -6,7 +6,7 @@ const controller = require('./../controller');
 
 router.get('/', controller.getMainMovie)
 router.get('/:genre', controller.getGenreMovie)
-router.get('/view/:post-id', controller.getMainMovieDetail)
+router.get('/view/:postid', controller.getMainMovieDetail)
 
 module.exports = router;
 

@@ -17,10 +17,10 @@ app.use(cors({
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS']
   }));
 
-// app.use('/', indexRouter);
-app.get('/', (req, res) => {
-  res.send("Hello world")
-})
+app.use('/', indexRouter);
+// app.get('/', (req, res) => {
+//   res.send("Hello world")
+// })
 
 app.listen(port, () => {
     console.log(`서버가 ${port}번에서 작동중입니다.`);

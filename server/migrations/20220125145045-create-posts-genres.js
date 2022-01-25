@@ -1,8 +1,7 @@
 'use strict';
-
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    return queryInterface.createTable('Post_Genre', {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable('posts_genres', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -25,7 +24,7 @@ module.exports = {
           as: 'genre_id'
         }
       },
-      createdAd: {
+      createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
@@ -33,10 +32,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       }
-    })
+    });
   },
-
-  async down (queryInterface, Sequelize) {
-    return queryInterface.dropTable('Post_Genre')
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable('posts_genres');
   }
 };
