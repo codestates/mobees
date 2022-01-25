@@ -4,7 +4,7 @@ const { sign, verify } = require("jsonwebtoken");
 module.exports = {
   //access token 생성
   generateAccessToken: (data) => {
-    return sign(data, process.env.Access_SECRET, { expiresIn: "1h" });
+    return sign(data, process.env.ACCESS_SECRET, { expiresIn: "1h" });
   },
 
   // 쿠키로 access token 전달
@@ -21,7 +21,7 @@ module.exports = {
       return null;
     }
     try {
-      return verify(accessToken, process.env.Access_SECRET);
+      return verify(accessToken, process.env.ACCESS_SECRET);
     } catch (err) {
       // 토큰이 잘못된 경우
       return null;
