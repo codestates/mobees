@@ -6,7 +6,12 @@ const {checkAccessToken} = require('../tokenFunctions')
 
 module.exports = async (req, res) => {
 
-  console.log(checkAccessToken)
+  console.log("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - ")
+  // 테이블 참조 관계
+  // post 
+  // post_genre : post_id, genre_id
+  // genre 
+
   
   const jwt = checkAccessToken(req)
 
@@ -17,58 +22,110 @@ module.exports = async (req, res) => {
 
   // 토큰이 유효할 경우
   else {
-    const { email } = jwt.email;
+    const { email } = jwt;
+    
     const userInfo = await user.findOne({
       where : {email : email}
     })
 
+    const userId = userInfo.dataValues.id
+    // console.log("    -        -   userId    -    *     *", userId)         // O
+    // console.log("    -        -       -    *     *",userInfo.dataValues)   // O
+
     // 2. 가입된 유저인지 확인
     // if (userInfo) {
       
-      const {image, movie_title, movie_theater, movie_date, movie_time, movie_seat, movie_genre} = req.body
+    const {image, movie_title, movie_theater, movie_date, movie_time, movie_seat, movie_genre} = req.body
 
       // 3. 모든 정보가 제공됐는지 확인      // genre는 관계형
-      if (!image || !movie_title || !movie_theater || !movie_date || !movie_time || !movie_seat || !movie_genre) {
-        res.status(422).send({data: null, message: 'Insufficient parameters supplied'})
-      }
+    if (!image || !movie_title || !movie_theater || !movie_date || !movie_time || !movie_seat || !movie_genre) {
+      res.status(422).send({data: null, message: 'Insufficient parameters supplied'})
+    }
       // 토큰도 있고, 모든 정보가 담겨있을 경우 -> post db에 레코드 추가, 포스트-장르 조인테이블 레코드 추가
-      else {
-        const newPost = await post.create({
-          email,
-          image,
-          movie_title,
-          movie_theater,
-          movie_date,
-          movie_time,
-          movie_seat,
-          // include : [
-          //   genre
-          // ]
-        })
+    else {
+      // console.log(`      8     5        4     9j        s       d      ${post}`)
+      const newPost = await post.create({
+        user_id : userId,
+        image,
+        movie_title,
+        movie_theater,
+        movie_date,
+        movie_time,
+        movie_seat,
+        // include : [
+        //   genre
+        // ]
+      })
 
-        // 장르 테이블에서 요청으로 받은 장르 레코드의 id 찾아서 조인 테이블에 추가해주기
-        const genreRecord = await genre.findOne({
-          where : ({
-            genre : movie_genre
-          })
-        })
 
-        await Post_Genre.create({
-          post_id : newPost.id,
-          genre_id : genreRecord.id
-        })
+      // const genreList = await genre.findAll()
+      // console.log(" 0   0-9- 90     -09 8 9089 6765  76 5 7 ",genreList.dataValues)
+      // console.log("`   *    *     ( ) ) 9   &  2##$*%%      ${newPost}`", newPost.dataValues)
 
-        // const genreId = await post.findOne({
-        //   include : genre
-        // })
-        
-        res.statsu(201).json({
-          data : {
-            uploading : newPost
-          },
-          message : 'ok'
-        })
-      }
+      // 장르 테이블에서 요청으로 받은 장르 레코드의 id 찾아서 조인 테이블에 추가해주기
+      // const genreRecord = await genre.findOne({
+      //   where : ({
+      //     genre : movie_genre
+      //   })
+      // })
+      
+      // console.log("`   -     -      genreRecord    - -  -     -  ${genreRecord}`", genreRecord.dataValues)
+
+      // const thegenre = genreRecord.dataValues.genre
+      
+
+      const newGenre = await genre.create({
+        genre: "action"
+      })
+
+      await newPost.addGenre(newGenre)
+
+      const postandgenre = post.findOne({
+        include : genre
+      })
+
+      console.log("제발 나와라!!!!!!!!!", JSON.stringify(postandgenre, null, 2))
+
+      // const postandgenre = await genre.create({
+      //   genre: [{
+      //     genre : genreRecord.dataValues.genre,
+      //     Post_Genre:{
+      //       selfGranted: true
+      //     }
+      //   }]
+      // }, {
+      //   include: genre
+      // })
+
+      // console.log("        [   postandgenre  ]          ", postandgenre)
+
+      // const result = await post.findOne({
+      //   where : {
+      //     id: newPost.dataValues.id
+      //   },
+      //   include: genre
+      // })
+
+
+      // console.log("    0    7    postandgenre     5         ", result)
+
+      // const newPostGenre = await Post_Genre.create({
+      //   post_id : newPost.dataValues.id,
+      //   genre_id : genreRecord.dataValues.id
+      // })
+
+      // console.log("       newPostGenre      ", newPostGenre)
+      // const genreId = await post.findOne({
+      //   include : genre
+      // })
+
+      res.status(201).json({
+        data : {
+          uploading : newPost
+        },
+        message : 'ok'
+      })
+    }
     // }
   }
 };

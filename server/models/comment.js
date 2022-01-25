@@ -5,8 +5,12 @@ const {
 module.exports = (sequelize, DataTypes) => {
   class comment extends Model {
     static associate(models) {
-      models.comment.belongsTo(models.user);
-      models.comment.belongsTo(models.post);
+      models.comment.belongsTo(models.user, {
+        foreignKey: "user_id",
+      });
+      models.comment.belongsTo(models.post, {
+        foreignKey: "post_id",
+      });
     }
   }
   comment.init({
