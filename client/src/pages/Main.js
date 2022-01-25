@@ -1,7 +1,6 @@
 import React from "react";
 import Gerne from "../component/Gerne";
 import MovieList from "../component/MovieList";
-
 const Main = () => {
   return (
     <>

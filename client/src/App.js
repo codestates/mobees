@@ -1,4 +1,5 @@
 import "./App.css";
+import React, { useState } from "react";
 import Header from "./component/Header";
 import Footer from "./component/Footer";
 import Main from "./pages/Main";
@@ -11,9 +12,11 @@ import SignUp from "./pages/SignUp";
 import { Link, Route, Switch, useHistory } from "react-router-dom";
 
 function App() {
+  let [isLogin, setIsLogin] = useState(true);
+
   return (
     <div className="App">
-      <Header></Header>
+      <Header isLogin={isLogin} setIsLogin={setIsLogin}></Header>
       <Switch>
         <Route exact path="/">
           <Main></Main>

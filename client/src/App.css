@@ -1,3 +1,4 @@
+/* header------------------------------------------*/
 .header {
   width: 100%;
   height: 90px;
@@ -5,7 +6,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
+  z-index: 100; /* 수정부분 */
   background-color: rgb(255, 255, 255);
 }
 
@@ -39,7 +40,7 @@
 .header_right > div {
   float: left;
 }
-.serch {
+.search {
   width: 24%;
   height: 40px;
   margin-top: 12px;
@@ -57,26 +58,63 @@
   border: 1px solid #8b8585;
   cursor: pointer;
 }
+/* 작성부분 시작*/
+.app_logo {
+  width: 100%;
+}
+.login_btn {
+  width: 100%;
+}
+.profile_btn {
+  width: 40px;
+}
+.search_icon {
+  width: 38px;
+}
+.posting_icon {
+  width: 40px;
+}
+/* 작성부분 끝*/
 
 .section {
   width: 100%;
   height: 100%;
-  padding-top: 85px;
+  padding-top: 91px;
   /* background-color: #86aab3; */
+}
+
+/* gerne------------------------------------------*/
+.gerne_slide {
+  display: inline-block;
+  width: 30px;
+  height: 100%;
+  background-color: rgb(59, 111, 59, 0.5);
+}
+.prev {
+  float: left;
+}
+.next {
+  float: right;
+}
+.prev_icon {
+  width: 30px;
+  padding: 5px 0;
+}
+.next_icon {
+  width: 30px;
+  padding: 5px 0;
 }
 
 .gerne {
   width: 100%;
-  height: 20vh;
+  height: 15vh;
   /* background-color: darkorange; */
   position: relative;
 }
 
 .gerne_list {
-  width: 1024px;
-  height: 6vh;
-  margin: 0 auto;
   border: 1px solid #8b8585;
+  height: 40px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -94,9 +132,78 @@
   cursor: pointer;
 }
 
+.slide_wrapper {
+  margin: 0;
+  width: 1024px;
+  /* overflow: hidden; */
+}
+
+.slides {
+  margin: 0px 40px;
+  padding: 0;
+  width: 1270px;
+  height: 40px;
+  display: block;
+  background-color: rgba(255, 10, 10, 0.5);
+  position: absolute;
+}
+.slides.animated {
+  transition: 0.5s ease-out;
+}
+.slide_btn {
+  list-style: none;
+  width: 148px;
+  text-align: center;
+  line-height: 38px;
+  height: 38px;
+  border: 1px black solid;
+  border-radius: 5px;
+  /* float: left; */
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.slides li:not(:last-child) {
+  margin-right: 10px;
+}
+
+/* .movie {
+  width: 100%;
+  height: 85vh;
+  margin: 0 auto;
+  background-color: rgb(181, 131, 71);
+  position: relative;
+} */
+/* .movie_list {
+  width: 1024px;
+  height: 75vh;
+  margin: 0 auto;
+  background-color: rgb(202, 160, 223);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+} */
+
+/* .movie_detail {
+  width: 900px;
+  margin: 0 auto;
+  height: 50%;
+  background-color: aquamarine;
+} */
+
+.more {
+  width: 60px;
+  height: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin: 50px auto 65px auto;
+}
+
 .footer {
   width: 100%;
-  height: 170px;
+  height: 160px;
   /* background-color: rgb(41, 133, 167); */
   border-top: solid 1px #8b8585;
   /* position: relative; */
@@ -107,11 +214,11 @@
   height: 50px;
   margin: 0 auto;
   border: 1px solid #8b8585;
-  margin-top: 40px;
-  cursor: pointer;
+  margin-top: 30px;
   /* position: absolute; */
 }
 
+/* 작성부분 시작*/
 .address {
   width: 200px;
   /* line-height: 1.2; */
@@ -147,4 +254,8 @@
   text-align: center;
   margin: 50px auto 50px auto;
   cursor: pointer;
+  text-align: center;
+  margin: 0 auto;
+  border: 1px solid #8b8585;
 }
+/* 작성부분 끝*/
