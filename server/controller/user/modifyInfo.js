@@ -18,25 +18,31 @@ module.exports = (req, res) => {
       .send({ message: "Insufficient parameters supplied" });
   }
 
+  // res.send(user_name);
+
   user
     .update(
       {
-        user_name,
-        password,
-        phone_number,
-        nickname,
-        profile_image,
+        user_name: req.body.user_name,
+        password: req.body.password,
+        phone_number: req.body.phone_number,
+        nickname: req.body.nickname,
+        profile_image: req.body.profile_image,
       },
       {
         where: {
-          email,
+          email: email,
         },
       }
     )
     .then((num) => {
-      if (num === 1) {
-        res.status(201).send({
-          message: "UserInfo was updated successfully",
+      res.status(201).send({
+        message: "UserInfo was updated successfully",
+      });
+
+      if (num !== 1) {
+        res.status(404).send({
+          message: "UserInfo was not updated",
         });
       }
     })

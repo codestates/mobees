@@ -2,11 +2,15 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
-    let genre = ["horror", "romance", "comic", "action", "fantasy", "SF"];
-    let datas = [];
-    for (let i = 0; i < genre.length; i++) {
+    let genre = [1, 2, 3, 4, 5, 6];
+    let post = [];
+    let data = [];
+    for (let i = 65; i < 100; i++) {
+      post.push(i);
+
       let obj = {
-        genre: genre[i],
+        post_id: i,
+        genre_id: Math.floor(Math.random() * 6) + 1,
         createdAt: new Date()
           .toISOString()
           .replace(/T/, " ")
@@ -17,13 +21,12 @@ module.exports = {
           .replace(/\..+/, ""),
       };
 
-      datas.push(obj);
+      data.push(obj);
     }
-
-    return queryInterface.bulkInsert("genres", datas, {});
+    return queryInterface.bulkInsert("Post_Genre", data, {});
   },
 
   async down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete("genres", null, {});
+    return queryInterface.bulkDelete("Post_Genre", null, {});
   },
 };

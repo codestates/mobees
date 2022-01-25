@@ -1,8 +1,7 @@
 "use strict";
-
 module.exports = {
   async up(queryInterface, Sequelize) {
-    return queryInterface.createTable("Post_Genre", {
+    await queryInterface.createTable("posts_genres", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -35,8 +34,7 @@ module.exports = {
       },
     });
   },
-
   async down(queryInterface, Sequelize) {
-    return queryInterface.dropTable("Post_Genre");
+    await queryInterface.dropTable("posts_genres");
   },
 };

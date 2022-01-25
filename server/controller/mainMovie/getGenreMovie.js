@@ -15,7 +15,10 @@ module.exports = (req, res) => {
       include: [
         {
           model: post,
-          attributes: ["id", "image", "total_likes", "createdAt"],
+          through: {
+            // selfGranted: false,
+            attributes: ["id", "image", "total_likes", "createdAt"],
+          },
         },
       ],
       where: {
@@ -28,6 +31,15 @@ module.exports = (req, res) => {
       if (postCount < pageAsNumber * size) {
         return res.status(204).send({ message: "Posts no longer exist" });
       }
+
+      // const posts = result.rows[0].dataValues.posts;
+      // console.log(posts);
+      // posts = posts.map((el) => {
+      //   const post = el.post.dataValues;
+      //   delete post.Post_Genre;
+      //   return post;
+      // });
+
       res.send({ data: result, message: "ok" });
     })
     .catch((err) => {
