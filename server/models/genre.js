@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class genre extends Model {
     static associate(models) {
@@ -15,14 +13,17 @@ module.exports = (sequelize, DataTypes) => {
       // models.genre.sync({force: true, match: /_test$/}); 
     }
   }
-  genre.init({
-    genre: {
-      type: DataTypes.STRING, 
-      allowNull: false
+  genre.init(
+    {
+      genre: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+    },
+    {
+      sequelize,
+      modelName: "genre",
     }
-  }, {
-    sequelize,
-    modelName: 'genre',
-  });
+  );
   return genre;
 };
