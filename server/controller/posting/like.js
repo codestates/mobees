@@ -2,7 +2,7 @@ const { post } = require('../../models')
 
 module.exports = async(req, res) => {
 
-  const postId = Number(req.params.postid)
+  const postId = req.params.postid
 
   if (!postId) {
     res.status(400).json({message:'Bad request'})
