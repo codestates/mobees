@@ -1,15 +1,13 @@
 import React from "react";
-import Gerne from "../component/Gerne";
 import MovieList from "../component/MovieList";
-import MoreBtn from "../component/MoreBtn";
+import Profile from "../component/Profile";
 
 const MyMovie = () => {
   return (
     <>
       <div className="section">
-        <Gerne></Gerne>
+        <Profile></Profile>
         <MovieList></MovieList>
-        <MoreBtn></MoreBtn>
       </div>
     </>
   );
