@@ -19,7 +19,7 @@ module.exports = (req, res) => {
       if (postCount < pageAsNumber * size) {
         return res.status(204).send("Posts no longer exist.");
       }
-      res.status(200).send(result);
+      res.status(200).send({ data: { mainMovie: result.rows }, message: "ok" });
     })
     .catch((err) => {
       console.log(err);

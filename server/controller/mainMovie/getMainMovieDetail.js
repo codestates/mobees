@@ -1,7 +1,7 @@
 const { post, comment, user } = require("../../models");
 
 module.exports = async (req, res) => {
-  const postId = parseInt(req.params["post-id"]);
+  const postId = parseInt(req.params["postid"]);
 
   if (!postId) {
     return res.status(401).send({ data: null, message: "Not authorized" });

@@ -28,6 +28,8 @@ module.exports = (req, res) => {
         phone_number: req.body.phone_number,
         nickname: req.body.nickname,
         profile_image: req.body.profile_image,
+        phone_number,
+        profile_image,
       },
       {
         where: {

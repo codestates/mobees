@@ -23,10 +23,10 @@ module.exports = {
 
       data.push(obj);
     }
-    return queryInterface.bulkInsert("Post_Genre", data, {});
+    return queryInterface.bulkInsert("posts_genres", data, {});
   },
 
   async down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete("Post_Genre", null, {});
+    return queryInterface.bulkDelete("posts_genres", null, {});
   },
 };
