@@ -211,10 +211,10 @@
 
 .bottom_logo {
   width: 150px;
-  height: 50px;
+  height: 40px;
   margin: 0 auto;
-  border: 1px solid #8b8585;
-  margin-top: 30px;
+  /* border: 1px solid #8b8585; */
+  margin-top: 40px;
   /* position: absolute; */
 }
 
@@ -231,7 +231,7 @@
 
 .profile_div {
   max-width: 1024px;
-  height: 150px;
+  height: 160px;
   margin: 70px auto;
   border-bottom: 1px solid #8b8585;
 }
@@ -255,7 +255,5 @@
   margin: 50px auto 50px auto;
   cursor: pointer;
   text-align: center;
-  margin: 0 auto;
-  border: 1px solid #8b8585;
 }
 /* 작성부분 끝*/

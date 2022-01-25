@@ -1,12 +1,10 @@
 import React from "react";
 import Mypage from "../component/Mypage";
-import Join from "../component/Join";
 
-const MyPage = () => {
+const MyPage = ({ LoginData }) => {
   return (
     <div className="section">
-      <Mypage></Mypage>
-      <Join></Join>
+      <Mypage LoginData={LoginData}></Mypage>
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import React from "react";
-import Join from "../component/Join";
+import Sign from "../component/Sign";
 
 const SignUp = () => {
-  return <Join></Join>;
+  return <Sign></Sign>;
 };
 
 export default SignUp;

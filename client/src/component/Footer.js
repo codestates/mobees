@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../icon/logo_v1.png";
 import { Link, Route, Switch, useHistory } from "react-router-dom";
+
 const Footer = () => {
   const history = useHistory();
   return (

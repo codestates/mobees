@@ -2,11 +2,11 @@ import React from "react";
 import MovieList from "../component/MovieList";
 import Profile from "../component/Profile";
 
-const MyMovie = () => {
+const MyMovie = ({ LoginData }) => {
   return (
     <>
       <div className="section">
-        <Profile></Profile>
+        <Profile LoginData={LoginData}></Profile>
         <MovieList></MovieList>
       </div>
     </>

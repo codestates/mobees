@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Comment = styled.div`
   max-width: 650px;
   height: 350px;
-  /* background-color: #ddd; */
+  background-color: #777;
   margin: 50px auto;
 
   > .like_comment {

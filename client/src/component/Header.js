@@ -34,10 +34,11 @@ import posting from "../icon/posting_icon.png";
 import search from "../icon/search_icon.png";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Login from "../component/Login";
 
 const Header = (props) => {
   let [dropMenu, setdropMenu] = useState(false);
-
+  let [isOpen, setIsOpen] = useState(false);
   let Dropdown = styled.div`
     width: 100px;
     height: 100px;
@@ -46,6 +47,14 @@ const Header = (props) => {
     z-index: 9999;
     ${dropMenu ? `` : `display: none`};
   `;
+
+  const openModal = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeModal = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
     <>
@@ -118,13 +127,25 @@ const Header = (props) => {
                 </Dropdown>
               </div>
             ) : (
-              <div className="login">
+              <div
+                className="login"
+                onClick={(e) => {
+                  openModal(e);
+                }}
+              >
                 <img src={login} className="login_btn" />
               </div>
             )}
           </div>
         </div>
       </div>
+      {isOpen === true ? (
+        <Login
+          closeModal={closeModal}
+          setIsLogin={props.setIsLogin}
+          LoginData={props.LoginData}
+        ></Login>
+      ) : null}
     </>
   );
 };

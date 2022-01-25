@@ -11,12 +11,21 @@ import Posting from "./pages/Posting";
 import SignUp from "./pages/SignUp";
 import { Link, Route, Switch, useHistory } from "react-router-dom";
 
+const LoginData = {
+  email: "YeongYangJae@gmail.com",
+  nickName: "0_Yang_Jae",
+  password: "1234",
+};
+
 function App() {
   let [isLogin, setIsLogin] = useState(true);
-
   return (
     <div className="App">
-      <Header isLogin={isLogin} setIsLogin={setIsLogin}></Header>
+      <Header
+        isLogin={isLogin}
+        setIsLogin={setIsLogin}
+        LoginData={LoginData}
+      ></Header>
       <Switch>
         <Route exact path="/">
           <Main></Main>
@@ -25,13 +34,13 @@ function App() {
           <MainMovieDetail></MainMovieDetail>
         </Route>
         <Route path="/mymovie">
-          <MyMovie></MyMovie>
+          <MyMovie LoginData={LoginData}></MyMovie>
         </Route>
         <Route path="/mymoviedetail">
           <MyMovieDetail></MyMovieDetail>
         </Route>
         <Route path="/mypage">
-          <MyPage></MyPage>
+          <MyPage LoginData={LoginData}></MyPage>
         </Route>
         <Route path="/posting">
           <Posting></Posting>
