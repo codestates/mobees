@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
   const page = req.query.page || 0;
   const pageAsNumber = Number.parseInt(page);
   const size = 8;
-  const start = page * size;
+  const start = pageAsNumber * size;
 
   const post_genre = await genre.findAndCountAll({
     // limit: size,
