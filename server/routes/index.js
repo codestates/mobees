@@ -13,7 +13,7 @@ router.post('/signup', controller.signup)
 
 router.use('/users', userRouter);               // 복수
 router.use('/posts', postRouter);               // 복수
-router.use('/mainmovies', mainMovieRouter);    // 복수
-router.use('/mymovies', myMovieRouter);        // 복수
+router.use('/main-movies', mainMovieRouter);    // 복수
+router.use('/my-movies', myMovieRouter);        // 복수
 
 module.exports = router;
