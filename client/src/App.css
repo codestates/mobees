@@ -53,7 +53,7 @@
 /* 작성부분 시작*/
 .app_logo {
   height: 40px;
-  padding-top:10px;
+  padding-top: 10px;
 }
 .login_btn {
   width: 100%;
@@ -112,14 +112,13 @@
 .section {
   width: 100%;
   height: 100%;
-  overflow:auto; 
+  overflow: auto;
   padding-top: 91px;
   /* padding-bottom: 80px; */
   /* background-color: #86aab3; */
 }
 
 /* gerne------------------------------------------*/
-
 
 .gerne {
   width: 100%;
@@ -128,19 +127,19 @@
   position: relative;
 }
 
-
 .loding {
-  width: 100%;
+  width: 60px;
   height: 90px;
   overflow: hidden;
-  /* width: 60px;
+  width: 60px;
+  /* background-color: bisque; */
   height: 20px;
-  font-size: 20px;
+  font-size: 15px;
   color: #8b8585;
   font-weight: bold;
   text-align: center;
-  margin: 50px auto 75px auto;
-  cursor: pointer; */
+  margin: 60px auto 75px auto;
+  cursor: pointer;
 }
 
 .slides.animated {
@@ -149,46 +148,58 @@
 
 .more {
   width: 60px;
-  height: 20px;
+  height: 90px;
   font-size: 20px;
+  line-height: 18px;
   font-weight: bold;
   text-align: center;
   margin: 50px auto 65px auto;
+  /* background-color: blue; */
 }
 
 .footer {
-  box-shadow: 0px -1px 10px #ddd;
+  box-shadow: 0px 0px 3px #ddd;
   width: 100%;
-  height: 120px;
-  background-color: #ddd;
+  height: 140px;
+  background-color: rgba(244, 244, 244, 0.5);
   /* position: relative; */
 }
 
 .bottom_logo {
-  width: 150px;
-  height: 40px;
-  padding-top: 20px;
-  margin: 0 auto;
+  width: 100px;
+  height: 30px;
+  margin: 10px auto;
   /* border: 1px solid #8b8585; */
-  position: relative;
+  padding-top: 43px;
+  /* background-size: contain; */
+  /* position: relative; */
+  /* background-color: rgb(73, 154, 154); */
   /* position: absolute; */
+  /* position: absolute; */
+  /* top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
 }
+
 .app_logo_footer {
   width: 100px;
-  position: absolute;
-  left: 25px;
-  bottom: 0;
-  opacity: 0.5;
+  height: 30px;
+  background-size: contain;
+  /* box-sizing: border-box; */
+  /* position: absolute; */
+  /* left: 25px; */
+  /* bottom: 0; */
+  opacity: 0.8;
 }
 
 /* 작성부분 시작*/
 .address {
-  /* line-height: 1.2; */
+  line-height: 1.2;
   margin: 0 auto;
   text-align: center;
-  margin-top: 10px;
-  font-size: 15px;
-  opacity: 0.5;
+  margin-top: 12px;
+  font-size: 11px;
+  opacity: 0.4;
   /* background-color: rgb(41, 133, 167); */
 }
 
@@ -205,7 +216,7 @@
   font-size: 20px;
   font-weight: bold;
   text-align: center;
-  margin: 50px auto 75px auto;
+  margin: 65px auto 90px auto;
   cursor: pointer;
 }
 
@@ -215,7 +226,7 @@
   font-size: 20px;
   font-weight: bold;
   text-align: center;
-  margin: 50px auto 50px auto;
+  margin: 50px auto 70px auto;
   cursor: pointer;
   text-align: center;
 }
