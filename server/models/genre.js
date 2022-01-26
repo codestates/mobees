@@ -4,13 +4,13 @@ module.exports = (sequelize, DataTypes) => {
   class genre extends Model {
     static associate(models) {
       models.genre.belongsToMany(models.post, {
-        through: models.posts_genres,
-        foreignKey: "genre_id",
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
-        sourceKey: "id",
-      });
-      // models.genre.sync({force: true, match: /_test$/});
+        through: "posts_genres", 
+        foreignKey: 'genre_id',
+        onUpdate: 'CASCADE', 
+        onDelete: 'CASCADE', 
+        sourceKey: 'id'  
+      })
+      // models.genre.sync({force: true, match: /_test$/}); 
     }
   }
   genre.init(

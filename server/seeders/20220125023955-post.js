@@ -10,6 +10,7 @@ module.exports = {
         movie_date: "2022-01-25",
         movie_time: `05:${i}:${i}`,
         movie_seat: `A${i}`,
+        movie_review: `yeah~~! happy~~ ${i}`,
         total_likes: i,
         total_comments: i,
         createdAt: new Date()
