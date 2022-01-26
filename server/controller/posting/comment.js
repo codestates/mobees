@@ -31,7 +31,7 @@ module.exports = async (req, res) => {
   }
 
   if (!accessToken) {
-    return res.status(401).send({ data: null, message: "not authorized" });
+    return res.status(401).send({ message: "Not authorized" });
   }
 
   const { id, nickname } = accessToken;
@@ -44,7 +44,7 @@ module.exports = async (req, res) => {
     })
     .then((result) => {
       if (!result) {
-        return res.status(404).send("Post isn't exist");
+        return res.status(404).send({ message: "Post isn't exist" });
       }
 
       result.update({
