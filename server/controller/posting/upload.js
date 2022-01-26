@@ -47,9 +47,11 @@ module.exports = async (req, res) => {
       
       // update through table
       await posts_genres.create({
-        post_id : newPost.dataValues.id,
-        genre_id : genreRecord.dataValues.id
+        post_id : newPost.id,
+        genre_id : genreRecord.id
       }).catch(() => console.log(err))
+
+      // await post.addPosts_Genres([genreRecord.id])
 
       res.status(201).json({ 
         data : { uploading : newPost}, 
