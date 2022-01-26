@@ -20,11 +20,9 @@ module.exports = (req, res) => {
       },
     })
     .then((result) => {
-      return res.status(200).send({ message: "ok" });
+      return res.redirect(302, "/main-movies");
     })
     .catch((err) => {
       return res.status(500).send({ message: "Internet server error" });
     });
 };
-
-

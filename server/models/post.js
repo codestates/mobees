@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       models.post.hasMany(models.comment, {
         foreignKey: "post_id",
       });
+
       models.post.belongsToMany(models.genre, {
         through: "posts_genres", 
         foreignKey: 'post_id',
@@ -29,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       image: {
-        type: DataTypes.BLOB,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       total_likes: {
@@ -57,6 +58,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       movie_seat: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      movie_review: {
         type: DataTypes.STRING,
         allowNull: false,
       },

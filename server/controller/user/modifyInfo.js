@@ -1,5 +1,6 @@
 const { user } = require("../../models");
 const { checkAccessToken } = require("../tokenFunctions");
+require("dotenv").config();
 
 module.exports = (req, res) => {
   const accessTokenData = checkAccessToken(req);
@@ -12,33 +13,42 @@ module.exports = (req, res) => {
   const { user_name, password, phone_number, nickname, profile_image } =
     req.body;
 
-  if (!user_name || !password || !phone_number || !nickname) {
+  if (!user_name || !password || !nickname) {
     return res
       .status(422)
       .send({ message: "Insufficient parameters supplied" });
   }
 
+  // res.send(user_name);
+
   user
     .update(
       {
-        user_name,
-        password,
+        user_name: req.body.user_name,
+        password: req.body.password,
+        phone_number: req.body.phone_number,
+        nickname: req.body.nickname,
+        profile_image: req.body.profile_image,
         phone_number,
-        nickname,
         profile_image,
       },
       {
         where: {
-          email,
+          email: email,
         },
       }
     )
     .then((num) => {
-      if (num === 1) {
-        res.status(201).send({
-          message: "UserInfo was updated successfully",
-        });
-      }
+      res.redirect(302, "/users/info");
+      // res.status(201).send({
+      //   message: "UserInfo was updated successfully",
+      // });
+
+      // if (num !== 1) {
+      //   res.status(404).send({
+      //     message: "UserInfo was not updated",
+      //   });
+      // }
     })
     .catch((err) => {
       console.log(err);

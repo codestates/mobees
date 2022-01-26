@@ -1,21 +1,19 @@
-.App {
-  text-align: center;
-}
+/* header------------------------------------------*/
 .header {
   width: 100%;
-  height: 85px;
-  border-bottom: solid 1px #8b8585;
+  height: 90px;
+  box-shadow: 0px 0px 10px #ddd;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 9999;
-  background-color: darkgoldenrod;
+  z-index: 100; /* 수정부분 */
+  background-color: rgb(255, 255, 255);
 }
 
 .header_div {
-  width: 70%;
+  width: 1024px;
   height: 65px;
-  background-color: darkorchid;
+  /* background-color: darkorchid; */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -26,98 +24,199 @@
 }
 
 .header_left {
-  width: 180px;
+  width: auto;
   height: 65px;
-  background-color: darkseagreen;
+  /* border: 1px solid #8b8585; */
+  cursor: pointer;
 }
 .header_right {
   width: 180px;
   height: 65px;
   position: absolute;
   right: 0;
-  background-color: rgb(59, 111, 59);
+  /* background-color: rgb(59, 111, 59, 0.5); */
   box-sizing: border-box;
 }
 .header_right > div {
   float: left;
-}
-.serch {
-  width: 24%;
-  height: 40px;
-  margin-top: 12px;
-  margin-left: 10px;
-  background-color: forestgreen;
+  padding-top: 10px;
+  padding-left: 20px;
 }
 .login {
   width: 58%;
   height: 40px;
   margin-left: 22px;
   margin-top: 12px;
-  background-color: rgb(83, 164, 83);
+  box-sizing: border-box;
+  cursor: pointer;
 }
+/* 작성부분 시작*/
+.app_logo {
+  height: 40px;
+  padding-top:10px;
+}
+.login_btn {
+  width: 100%;
+}
+.profile_img_box {
+  position: absolute;
+  right: 0;
+  padding-left: -20px;
+  cursor: pointer;
+}
+.profile_btn {
+  width: 40px;
+}
+.down_arrow {
+  width: 8px;
+  height: 10px;
+  padding-left: 5px;
+  padding-bottom: 13px;
+  opacity: 0.5;
+}
+
+.profile_img_box:hover > .down_arrow {
+  opacity: 1;
+}
+
+.search {
+  width: 40px;
+  height: 65px;
+  box-sizing: border-box;
+}
+.search_icon {
+  display: inline-block;
+  height: 34px;
+  position: absolute;
+  left: 0;
+  top: 15px;
+  cursor: pointer;
+}
+.posting {
+  margin-left: 25px;
+  width: 40px;
+  height: 65px;
+  box-sizing: border-box;
+}
+.posting_icon {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 43px;
+  height: 43px;
+  position: relative;
+  left: -24px;
+  cursor: pointer;
+}
+/* 작성부분 끝*/
 
 .section {
   width: 100%;
-  height: 100vh;
-  padding-top: 9vh;
-  background-color: #86aab3;
+  height: 100%;
+  overflow:auto; 
+  padding-top: 91px;
+  /* padding-bottom: 80px; */
+  /* background-color: #86aab3; */
 }
+
+/* gerne------------------------------------------*/
+
 
 .gerne {
   width: 100%;
   height: 15vh;
-  background-color: darkorange;
+  /* background-color: darkorange; */
   position: relative;
 }
 
-.gerne_list {
-  width: 70%;
-  height: 10vh;
-  margin: 0 auto;
-  background-color: darkorchid;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.movie {
+
+.loding {
   width: 100%;
-  height: 85vh;
-  margin: 0 auto;
-  background-color: rgb(181, 131, 71);
-  position: relative;
+  height: 90px;
+  overflow: hidden;
+  /* width: 60px;
+  height: 20px;
+  font-size: 20px;
+  color: #8b8585;
+  font-weight: bold;
+  text-align: center;
+  margin: 50px auto 75px auto;
+  cursor: pointer; */
 }
-.movie_list {
-  width: 70%;
-  height: 75vh;
-  margin: 0 auto;
-  background-color: rgb(202, 160, 223);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
+.slides.animated {
+  transition: 0.5s ease-out;
+}
+
+.more {
+  width: 60px;
+  height: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin: 50px auto 65px auto;
 }
 
 .footer {
+  box-shadow: 0px -1px 10px #ddd;
   width: 100%;
-  height: 140px;
-  background-color: rgb(41, 133, 167);
-  border-top: solid 1px #a25252;
+  height: 120px;
+  background-color: #ddd;
   /* position: relative; */
 }
 
 .bottom_logo {
-  width: 120px;
-  height: 50px;
+  width: 150px;
+  height: 40px;
+  padding-top: 20px;
   margin: 0 auto;
-  background-color: darksalmon;
-  margin-top: 20px;
+  /* border: 1px solid #8b8585; */
+  position: relative;
   /* position: absolute; */
 }
-
-.address {
-  width: 120px;
-  height: 50px;
-  margin: 0 auto;
-  background-color: rgb(147, 83, 62);
+.app_logo_footer {
+  width: 100px;
+  position: absolute;
+  left: 25px;
+  bottom: 0;
+  opacity: 0.5;
 }
+
+/* 작성부분 시작*/
+.address {
+  /* line-height: 1.2; */
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 15px;
+  opacity: 0.5;
+  /* background-color: rgb(41, 133, 167); */
+}
+
+.profile_div {
+  max-width: 1024px;
+  height: 160px;
+  margin: 70px auto;
+  border-bottom: 1px solid #8b8585;
+}
+
+.more {
+  width: 60px;
+  height: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin: 50px auto 75px auto;
+  cursor: pointer;
+}
+
+.post {
+  width: 60px;
+  height: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin: 50px auto 50px auto;
+  cursor: pointer;
+  text-align: center;
+}
+/* 작성부분 끝*/

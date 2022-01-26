@@ -22,10 +22,8 @@ module.exports = async (req, res) => {
 
       const userInfo = result.dataValues;
       delete userInfo.password;
-      // console.log(userInfo);
 
       const accessToken = generateAccessToken(userInfo);
-      console.log(accessToken);
       sendAccessToken(res, accessToken);
       res.status(200).send({ message: "ok" });
     })

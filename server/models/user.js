@@ -1,6 +1,8 @@
 "use strict";
 const { Model } = require("sequelize");
-// const image = require("../Image");
+// const profileImage = require("../Image/userIcon.png");
+// const blob = new Blob(new Uint8Array(data), { type: "image/png" });
+
 module.exports = (sequelize, DataTypes) => {
   class user extends Model {
     static associate(models) {
@@ -42,8 +44,9 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       profile_image: {
-        type: DataTypes.BLOB,
-        defaultValue: "",
+        type: DataTypes.STRING,
+        defaultValue:
+          "https://media.vlpt.us/images/ez0ez0/post/c1a36b5d-99b3-49c1-b756-af1f664cb803/bee.png",
       },
     },
     {
