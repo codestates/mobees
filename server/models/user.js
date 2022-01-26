@@ -1,6 +1,8 @@
 "use strict";
 const { Model } = require("sequelize");
 // const image = require("../Image");
+// const blob = new Blob(new Uint8Array(data), { type: "image/png" });
+
 module.exports = (sequelize, DataTypes) => {
   class user extends Model {
     static associate(models) {

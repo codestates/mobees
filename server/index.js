@@ -9,13 +9,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false })); // post 요청 바디 추출
 app.use(cookieParser()); // 쿠키 추출
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false })); // post 요청 바디 추출
+app.use(cookieParser()); // 쿠키 추출
 
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }));       // post 요청 바디 추출
-app.use(cookieParser());                                // 쿠키 추출
-
-app.use(cors({
-    origin: ['https://localhost:3000'],                 // 수정 3001
+app.use(
+  cors({
+    origin: ["https://localhost:3000"], // 수정 3001
     // origin : true,
     credentials: true,
     methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],

@@ -2,17 +2,11 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
+    let genre = ["horror", "romance", "comic", "action", "fantasy", "SF"];
     let datas = [];
-    for (let i = 0; i < 35; i++) {
+    for (let i = 0; i < genre.length; i++) {
       let obj = {
-        email: "test" + i + "example.com",
-        phone_number: "010" + i + "111" + i + "222",
-        password: "testUser" + i,
-        nickname: "test" + i,
-        birthday: new Date()
-          .toISOString()
-          .replace(/T/, " ")
-          .replace(/\..+/, ""),
+        genre: genre[i],
         createdAt: new Date()
           .toISOString()
           .replace(/T/, " ")
@@ -26,10 +20,10 @@ module.exports = {
       datas.push(obj);
     }
 
-    return queryInterface.bulkInsert("users", datas, {});
+    return queryInterface.bulkInsert("genres", datas, {});
   },
 
   async down(queryInterface, Sequelize) {
-    return queryInterface.bulkDelete("users", null, {});
+    return queryInterface.bulkDelete("genres", null, {});
   },
 };

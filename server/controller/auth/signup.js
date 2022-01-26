@@ -28,14 +28,17 @@ module.exports = (req, res) => {
             password,
             user_name,
             nickname,
+            phone_number,
+            birthday,
           })
           .then((data) => {
+            delete data.dataValues.password;
             const accessToken = generateAccessToken(data.dataValues);
             sendAccessToken(res, accessToken);
-            return res.status(201).send({ message: "ok" });
+            return res.status(201).send({ data: data, message: "ok" });
           });
       } else {
-        return res.status(409).send("email.exists");
+        return res.status(409).send("email exists");
       }
     });
 };

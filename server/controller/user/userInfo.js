@@ -10,7 +10,7 @@ module.exports = (req, res) => {
   if (!accessTokenData) {
     return res.status(401).send({ data: null, message: "not authorized" });
   }
-
+  console.log(accessTokenData);
   const { email } = accessTokenData;
 
   user
