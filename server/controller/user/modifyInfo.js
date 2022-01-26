@@ -1,5 +1,6 @@
 const { user } = require("../../models");
 const { checkAccessToken } = require("../tokenFunctions");
+require("dotenv").config();
 
 module.exports = (req, res) => {
   const accessTokenData = checkAccessToken(req);
@@ -38,15 +39,16 @@ module.exports = (req, res) => {
       }
     )
     .then((num) => {
-      res.status(201).send({
-        message: "UserInfo was updated successfully",
-      });
+      res.redirect(302, "/users/info");
+      // res.status(201).send({
+      //   message: "UserInfo was updated successfully",
+      // });
 
-      if (num !== 1) {
-        res.status(404).send({
-          message: "UserInfo was not updated",
-        });
-      }
+      // if (num !== 1) {
+      //   res.status(404).send({
+      //     message: "UserInfo was not updated",
+      //   });
+      // }
     })
     .catch((err) => {
       console.log(err);

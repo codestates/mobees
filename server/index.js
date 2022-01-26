@@ -22,7 +22,7 @@ app.use(
   })
 );
 
-app.use('/', indexRouter);
+app.use("/", indexRouter);
 // app.get('/', (req, res) => {
 //   res.send("Hello world")
 // })
