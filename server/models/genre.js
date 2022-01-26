@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
   class genre extends Model {
     static associate(models) {
       models.genre.belongsToMany(models.post, {
-        through: "Post_Genre", 
+        through: "posts_genres", 
         foreignKey: 'genre_id',
         onUpdate: 'CASCADE', 
         onDelete: 'CASCADE', 

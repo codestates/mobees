@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "post_id",
       });
       models.post.belongsToMany(models.genre, {
-        through: "Post_Genre", 
+        through: "posts_genres", 
         foreignKey: 'post_id',
         onUpdate: 'CASCADE', 
         onDelete: 'CASCADE', 
