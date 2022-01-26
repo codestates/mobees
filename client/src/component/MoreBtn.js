@@ -1,11 +1,26 @@
 import React, { useState } from "react";
 import Loding from "./Loding";
+import more from "../icon/plus.png";
+import styled from "styled-components";
 
+const MoreBtnBox = styled.div`
+  position: relative;
+  top: -50px;
+  width: 100%;
+  height: 100px;
+  .more_btn {
+    width : 50px;
+    opacity: 0.2;
+    &:hover{
+      opacity: 1;
+    }
+  }
+`
 const MoreBtn = (props) => {
   const [loading, setLoading] = useState(false);
 
   return (
-    <>
+    <MoreBtnBox>
       {loading === false ? (
         <div
           className="more"
@@ -14,12 +29,12 @@ const MoreBtn = (props) => {
             setLoading(true);
           }}
         >
-          more
+          <img className="more_btn" src={more} />
         </div>
       ) : (
         <Loding></Loding>
       )}
-    </>
+    </MoreBtnBox>
   );
 };
 
