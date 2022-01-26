@@ -1,10 +1,12 @@
 
 const { post } = require('../../models')
 const { posts_genres } = require('../../models')
+const { checkAccessToken } = require('../tokenFunctions')
 
 module.exports = async (req, res) => {
   
   const postId = req.params.postid
+  // const userId = checkAccessToken(req).userId
 
   if (!postId) {
     res.status(400).json({message:'Bad request'})
@@ -32,5 +34,6 @@ module.exports = async (req, res) => {
     res.status(500).json({ message : 'Internal server error' })
   }
   
-  res.status(200).json({ message : 'Deleted successfully'})
+  // res.redirect('/my-movie/?1')
+  // res.status(200).json({ message : 'Deleted successfully'})
 };
