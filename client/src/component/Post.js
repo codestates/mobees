@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import PostBtn from "./PostBtn";
 import borCode from "../icon/barcode_icon.png";
@@ -6,7 +6,7 @@ import addPost from "../icon/add_image.png";
 
 const Posting_ul = styled.ul`
   max-width: 700px;
-  margin: 27px auto 65px auto;
+  margin: 30px auto 50px auto;
   display: grid;
   grid-template-columns: auto auto;
   padding: 10px;
@@ -52,6 +52,16 @@ const Post_image = styled.div`
         height: 40px;
         /* margin-top: -5px; */
       }
+    }
+    .posting_img {
+      width: 230px;
+      height: 35px;
+      /* margin: 15px auto; */
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: 1px solid rgb(0, 0, 0, 0.3);
+      outline: 0;
     }
   }
 `;
@@ -101,7 +111,6 @@ const Post_infor = styled.div`
     }
     input[type="datetime-local"]:valid {
       color: rgb(0, 0, 0, 0.4);
-      letter-spacing: -1px;
     }
     > .movie_seat {
       width: 230px;
@@ -150,6 +159,13 @@ const MovieReview = styled.div`
 `;
 
 const Posting = () => {
+  let [imgUrl, setImgUrl] = useState("");
+  let [title, setTitle] = useState("");
+  let [theater, setTheater] = useState("");
+  let [dateTime, setDateTime] = useState("");
+  let [seat, setSeat] = useState("");
+  let [comment, setComment] = useState("");
+
   return (
     <>
       <Posting_ul>
@@ -160,7 +176,7 @@ const Posting = () => {
                 style={{
                   textAlign: "center",
                   fontWeight: "500",
-                  color: "rgb(0, 0, 0, 0.6)",
+                  color: "rgb(0, 0, 0, 0.4)",
                   // marginTop: "2px",
                 }}
               >
@@ -170,6 +186,17 @@ const Posting = () => {
                 <img src={addPost}></img>
               </div>
             </div>
+
+            <input
+              name="posting_img"
+              className="posting_img"
+              type="text"
+              placeholder="이미지URL을 입력해주세요"
+              onChange={(e) => {
+                setImgUrl(e.target.value);
+              }}
+              value={imgUrl}
+            />
           </Post_image>
         </li>
         <li>
@@ -181,7 +208,10 @@ const Posting = () => {
                 type="text"
                 placeholder="영화 제목을 입력해주세요."
                 maxLength="30"
-                // onChange={this.loginHandler}
+                onChange={(e) => {
+                  setTitle(e.target.value);
+                }}
+                value={title}
               />
               <input
                 name="movie_theater"
@@ -189,13 +219,19 @@ const Posting = () => {
                 type="text"
                 placeholder="영화관을 입력해주세요."
                 maxLength="30"
-                // onChange={this.loginHandler}
+                onChange={(e) => {
+                  setTheater(e.target.value);
+                }}
+                value={theater}
               />
               <input
                 name="movie_date"
                 className="movie_date"
                 type="datetime-local"
-                // onChange={this.loginHandler}
+                onChange={(e) => {
+                  setDateTime(e.target.value);
+                }} //2021-12-22T00:43
+                value={dateTime}
               />
               {/* <input
               name="movie_time"
@@ -209,19 +245,21 @@ const Posting = () => {
                 type="text"
                 maxLength="5"
                 placeholder="좌석을 입력해주세요.                    ex. D11"
-                // onChange={this.loginHandler}
+                onChange={(e) => {
+                  setSeat(e.target.value);
+                }}
+                value={seat}
               />
-
               <MovieReview>
                 {/* <p className="username">Mobees_username</p> */}
                 <textarea
                   id="comment_writing"
                   maxLength={100}
                   placeholder="한줄평을 작성해주세요"
-                  // onChange={(e) => {
-                  //   setValue(e.target.value);
-                  // }}
-                  // value={value}
+                  onChange={(e) => {
+                    setComment(e.target.value);
+                  }}
+                  value={comment}
                 ></textarea>
               </MovieReview>
               <div className="barcode_image">
@@ -231,7 +269,14 @@ const Posting = () => {
           </Post_infor>
         </li>
       </Posting_ul>
-      <PostBtn></PostBtn>
+      <PostBtn
+        imgUrl={imgUrl}
+        title={title}
+        theater={theater}
+        seat={seat}
+        comment={comment}
+        info={dateTime}
+      ></PostBtn>
     </>
   );
 };
