@@ -10,8 +10,6 @@ module.exports = async (req, res) => {
   const start = pageAsNumber * size;
 
   const post_genre = await genre.findAndCountAll({
-    // limit: size,
-    // offset: pageAsNumber * size,
     include: [
       {
         model: post,
