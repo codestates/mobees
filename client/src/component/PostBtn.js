@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import { useHistory } from "react-router-dom";
 const PostingBtn = styled.div`
   width: 120px;
   height: 40px;
@@ -19,6 +19,7 @@ const PostingBtn = styled.div`
 `;
 
 const PostBtn = ({ imgUrl, title, theater, seat, comment, info }) => {
+  const history = useHistory();
   return (
     <PostingBtn
       className="post"
@@ -32,6 +33,7 @@ const PostBtn = ({ imgUrl, title, theater, seat, comment, info }) => {
         let arr = info.split("T");
         obj.movie_date = arr[0];
         obj.movie_time = arr[1] + ":00";
+        history.push("/mymovie");
       }}
     >
       POST

@@ -16,7 +16,7 @@ const Posting_ul = styled.ul`
   list-style: none;
   > li {
     width: auto;
-    box-shadow: 2px 3px 4px #ddd;
+    box-shadow: 2px 3px 3px 1px #ddd;
     /* background-color: cadetblue; */
     min-height: 500px;
     border: 1px solid #fff;
@@ -32,7 +32,8 @@ const Post_image = styled.div`
   box-sizing: border-box;
   /* border: 1px solid #ddd; */
   position: relative;
-  background-color: rgb(0, 0, 0, 0.05);
+  background-color: #f8f8f8;
+  cursor: pointer;
   /* transform: scale(0, -1); */
   .posting_image {
     width: 100px;
@@ -50,18 +51,51 @@ const Post_image = styled.div`
       > img {
         width: 40px;
         height: 40px;
+
         /* margin-top: -5px; */
       }
     }
-    .posting_img {
-      width: 230px;
-      height: 35px;
-      /* margin: 15px auto; */
-      border-top: none;
-      border-left: none;
-      border-right: none;
-      border-bottom: 1px solid rgb(0, 0, 0, 0.3);
-      outline: 0;
+  }
+
+  .posting_img {
+    width: 230px;
+    height: 35px;
+    /* margin: 15px auto; */
+    /* border-top: none;
+    border-left: none;
+    border-right: none; */
+    border: 1px solid rgb(0, 0, 0, 0.3);
+    outline: 0;
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    /* border-radius: 10px; */
+    transform: translate(-50%, -50%);
+  }
+  .close_btn {
+    width: 60px;
+    height: 30px;
+    /* margin: 15px auto; */
+    /* border-top: none;
+    border-left: none;
+    border-right: none; */
+    /* border: 1px solid rgb(0, 0, 0, 0.3); */
+    outline: 0;
+    position: absolute;
+    left: 50%;
+    top: 56%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(0, 0, 0, 0.1);
+    border-radius: 20px;
+    color: rgb(0, 0, 0, 0.5);
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    &:hover {
+      background-color: #2b2828;
+      color: #fff;
     }
   }
 `;
@@ -111,6 +145,7 @@ const Post_infor = styled.div`
     }
     input[type="datetime-local"]:valid {
       color: rgb(0, 0, 0, 0.4);
+      letter-spacing: -1px;
     }
     > .movie_seat {
       width: 230px;
@@ -118,13 +153,13 @@ const Post_infor = styled.div`
       margin: 10px auto;
     }
     .barcode_image {
-      width: 200px;
-      height: 50px;
+      width: 180px;
+      height: 48px;
       /* background-color: crimson; */
-      margin: 29px auto 0 auto;
+      margin: 31px auto 0 auto;
       > img {
-        width: 200px;
-        height: 50px;
+        width: 180px;
+        height: 48px;
       }
     }
   }
@@ -166,38 +201,64 @@ const Posting = () => {
   let [seat, setSeat] = useState("");
   let [comment, setComment] = useState("");
 
+  const [modal, setModal] = useState(false);
+
+  const openModal = () => {
+    setModal(true);
+  };
+
+  const closeModal = () => {
+    setModal(false);
+  };
+
   return (
     <>
       <Posting_ul>
         <li>
-          <Post_image>
-            <div className="posting_image">
-              <p
-                style={{
-                  textAlign: "center",
-                  fontWeight: "500",
-                  color: "rgb(0, 0, 0, 0.4)",
-                  // marginTop: "2px",
+          {modal === true ? (
+            <Post_image>
+              <input
+                name="posting_img"
+                className="posting_img"
+                type="text"
+                placeholder="이미지 URL을 입력해주세요."
+                onChange={(e) => {
+                  setImgUrl(e.target.value);
+                }}
+                value={imgUrl}
+              />
+              <div
+                className="close_btn"
+                onClick={(e) => {
+                  closeModal(e);
                 }}
               >
-                Post Image
-              </p>
-              <div>
-                <img src={addPost}></img>
+                확인
               </div>
-            </div>
-
-            <input
-              name="posting_img"
-              className="posting_img"
-              type="text"
-              placeholder="이미지URL을 입력해주세요"
-              onChange={(e) => {
-                setImgUrl(e.target.value);
+            </Post_image>
+          ) : (
+            <Post_image
+              onClick={(e) => {
+                openModal(e);
               }}
-              value={imgUrl}
-            />
-          </Post_image>
+            >
+              <div className="posting_image">
+                <p
+                  style={{
+                    textAlign: "center",
+                    fontWeight: "500",
+                    color: "rgb(0, 0, 0, 0.4)",
+                    // marginTop: "2px",
+                  }}
+                >
+                  Post Image
+                </p>
+                <div>
+                  <img src={addPost}></img>
+                </div>
+              </div>
+            </Post_image>
+          )}
         </li>
         <li>
           <Post_infor>
@@ -207,7 +268,7 @@ const Posting = () => {
                 className="movie_title"
                 type="text"
                 placeholder="영화 제목을 입력해주세요."
-                maxLength="30"
+                maxLength="25"
                 onChange={(e) => {
                   setTitle(e.target.value);
                 }}
@@ -254,7 +315,7 @@ const Posting = () => {
                 {/* <p className="username">Mobees_username</p> */}
                 <textarea
                   id="comment_writing"
-                  maxLength={100}
+                  maxLength={50}
                   placeholder="한줄평을 작성해주세요"
                   onChange={(e) => {
                     setComment(e.target.value);
