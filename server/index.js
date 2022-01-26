@@ -4,6 +4,17 @@ const indexRouter = require("./routes");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const port = 3001;
+const models = require("./models/index.js");
+
+models.sequelize
+  .sync()
+  .then(() => {
+    console.log("DB 연결 성공");
+  })
+  .catch((err) => {
+    console.log("연결 실패");
+    console.log(err);
+  });
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false })); // post 요청 바디 추출
