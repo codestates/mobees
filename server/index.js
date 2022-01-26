@@ -22,9 +22,9 @@ app.use(
   })
 );
 
-app.use("/", indexRouter);
-// app.get('/:post_id', (req, res) => {
-//   res.send(`Hello world ${req.params.post_id}`)
+app.use('/', indexRouter);
+// app.get('/', (req, res) => {
+//   res.send("Hello world")
 // })
 
 app.listen(port, () => {
