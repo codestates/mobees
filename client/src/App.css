@@ -2,7 +2,7 @@
 .header {
   width: 100%;
   height: 90px;
-  border-bottom: solid 1px #8b8585;
+  box-shadow: 0px 0px 10px #ddd;
   position: fixed;
   top: 0;
   left: 0;
@@ -24,9 +24,9 @@
 }
 
 .header_left {
-  width: 180px;
+  width: auto;
   height: 65px;
-  border: 1px solid #8b8585;
+  /* border: 1px solid #8b8585; */
   cursor: pointer;
 }
 .header_right {
@@ -34,20 +34,13 @@
   height: 65px;
   position: absolute;
   right: 0;
-  /* background-color: rgb(59, 111, 59); */
+  /* background-color: rgb(59, 111, 59, 0.5); */
   box-sizing: border-box;
 }
 .header_right > div {
   float: left;
-}
-.search {
-  width: 24%;
-  height: 40px;
-  margin-top: 12px;
-  margin-left: 10px;
-  box-sizing: border-box;
-  border: 1px solid #8b8585;
-  cursor: pointer;
+  padding-top: 10px;
+  padding-left: 20px;
 }
 .login {
   width: 58%;
@@ -55,55 +48,78 @@
   margin-left: 22px;
   margin-top: 12px;
   box-sizing: border-box;
-  border: 1px solid #8b8585;
   cursor: pointer;
 }
 /* 작성부분 시작*/
 .app_logo {
-  width: 100%;
+  height: 40px;
+  padding-top:10px;
 }
 .login_btn {
   width: 100%;
 }
+.profile_img_box {
+  position: absolute;
+  right: 0;
+  padding-left: -20px;
+  cursor: pointer;
+}
 .profile_btn {
   width: 40px;
 }
+.down_arrow {
+  width: 8px;
+  height: 10px;
+  padding-left: 5px;
+  padding-bottom: 13px;
+  opacity: 0.5;
+}
+
+.profile_img_box:hover > .down_arrow {
+  opacity: 1;
+}
+
+.search {
+  width: 40px;
+  height: 65px;
+  box-sizing: border-box;
+}
 .search_icon {
-  width: 38px;
+  display: inline-block;
+  height: 34px;
+  position: absolute;
+  left: 0;
+  top: 15px;
+  cursor: pointer;
+}
+.posting {
+  margin-left: 25px;
+  width: 40px;
+  height: 65px;
+  box-sizing: border-box;
 }
 .posting_icon {
-  width: 40px;
+  box-sizing: border-box;
+  display: inline-block;
+  width: 43px;
+  height: 43px;
+  position: relative;
+  left: -24px;
+  cursor: pointer;
 }
 /* 작성부분 끝*/
 
 .section {
   width: 100%;
   height: 100%;
+  overflow:auto; 
   padding-top: 91px;
+  /* padding-bottom: 80px; */
   /* background-color: #86aab3; */
 }
 
 /* gerne------------------------------------------*/
-.gerne_slide {
-  display: inline-block;
-  width: 30px;
-  height: 100%;
-  background-color: rgb(59, 111, 59, 0.5);
-}
-.prev {
-  float: left;
-}
-.next {
-  float: right;
-}
-.prev_icon {
-  width: 30px;
-  padding: 5px 0;
-}
-.next_icon {
-  width: 30px;
-  padding: 5px 0;
-}
+
 
 .gerne {
   width: 100%;
@@ -112,85 +128,24 @@
   position: relative;
 }
 
-.gerne_list {
-  border: 1px solid #8b8585;
-  height: 40px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 
 .loding {
-  width: 60px;
+  width: 100%;
+  height: 90px;
+  overflow: hidden;
+  /* width: 60px;
   height: 20px;
   font-size: 20px;
   color: #8b8585;
   font-weight: bold;
   text-align: center;
   margin: 50px auto 75px auto;
-  cursor: pointer;
+  cursor: pointer; */
 }
 
-.slide_wrapper {
-  margin: 0;
-  width: 1024px;
-  /* overflow: hidden; */
-}
-
-.slides {
-  margin: 0px 40px;
-  padding: 0;
-  width: 1270px;
-  height: 40px;
-  display: block;
-  background-color: rgba(255, 10, 10, 0.5);
-  position: absolute;
-}
 .slides.animated {
   transition: 0.5s ease-out;
 }
-.slide_btn {
-  list-style: none;
-  width: 148px;
-  text-align: center;
-  line-height: 38px;
-  height: 38px;
-  border: 1px black solid;
-  border-radius: 5px;
-  /* float: left; */
-  display: inline-block;
-  white-space: nowrap;
-}
-
-.slides li:not(:last-child) {
-  margin-right: 10px;
-}
-
-/* .movie {
-  width: 100%;
-  height: 85vh;
-  margin: 0 auto;
-  background-color: rgb(181, 131, 71);
-  position: relative;
-} */
-/* .movie_list {
-  width: 1024px;
-  height: 75vh;
-  margin: 0 auto;
-  background-color: rgb(202, 160, 223);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-} */
-
-/* .movie_detail {
-  width: 900px;
-  margin: 0 auto;
-  height: 50%;
-  background-color: aquamarine;
-} */
 
 .more {
   width: 60px;
@@ -220,7 +175,6 @@
 
 /* 작성부분 시작*/
 .address {
-  width: 200px;
   /* line-height: 1.2; */
   margin: 0 auto;
   text-align: center;

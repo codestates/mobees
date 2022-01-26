@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link, Route, Switch, useHistory } from "react-router-dom";
 import MoreBtn from "./MoreBtn";
@@ -98,7 +98,7 @@ const MovieList = () => {
           </li>
         ))}
       </Movie_list_ul>
-      <MoreBtn></MoreBtn>
+      <MoreBtn list={list} setList={Setlist}></MoreBtn>
     </>
   );
 };
