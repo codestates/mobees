@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import logo from "../icon/logo_v1.png";
-import login from "../icon/login_icon.png";
 import profile from "../icon/user_icon.png";
 import posting from "../icon/posting_icon.png";
 import search from "../icon/search_icon.png";

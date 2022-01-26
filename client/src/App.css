@@ -6,6 +6,7 @@
   box-shadow: 0px 0px 10px #ddd;
   background-color: rgb(255, 255, 255);
   position: fixed;
+
   top: 0;
   left: 0;
   z-index: 100; /* 수정부분 */
@@ -14,6 +15,7 @@
 .header_div {
   width: 1024px;
   height: 65px;
+  /* background-color: brown; */
   /* background-color: darkorchid; */
   position: absolute;
   top: 50%;

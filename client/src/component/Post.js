@@ -116,6 +116,10 @@ const Post_image = styled.div`
     text-align: center;
     line-height: 30px;
     cursor: pointer;
+    &:hover {
+      background-color: #2b2828;
+      color: #fff;
+    }
   }
 `;
 
@@ -170,6 +174,7 @@ const Post_infor = styled.div`
       height: 35px;
       margin: 10px auto;
       display: inline-block;
+      letter-spacing: -1px;
     }
     .barcode_image {
       width: 200px;
@@ -206,6 +211,23 @@ const Post_infor = styled.div`
     &:hover {
       background-color: #2b2828;
       color: #fff;
+    }
+  }
+      
+    > .movie_seat {
+      width: 230px;
+      height: 35px;
+      margin: 10px auto;
+    }
+    .barcode_image {
+      width: 180px;
+      height: 48px;
+      /* background-color: crimson; */
+      margin: 31px auto 0 auto;
+      > img {
+        width: 180px;
+        height: 48px;
+      }
     }
   }
   /* transform: scale(0, -1); */
@@ -325,7 +347,7 @@ const Posting = () => {
                 className="movie_title"
                 type="text"
                 placeholder="영화 제목을 입력해주세요."
-                maxLength="30"
+                maxLength="25"
                 onChange={(e) => {
                   setTitle(e.target.value);
                 }}
@@ -373,7 +395,7 @@ const Posting = () => {
                 {/* <p className="username">Mobees_username</p> */}
                 <textarea
                   id="comment_writing"
-                  maxLength={100}
+                  maxLength={50}
                   placeholder="한줄평을 작성해주세요"
                   onChange={(e) => {
                     setComment(e.target.value);
