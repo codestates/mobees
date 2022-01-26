@@ -7,18 +7,6 @@ module.exports = async (req, res) => {
   // jwt 토큰에서 유저의 닉네임을 가져온다.
   // comments 테이블에 req.body로 받은 값인 comment, user_id, post_id, createdAt, updatedAt 을 추가해준다.
   // posts 테이블의 total_comments를 +1 해준다.
-  // 응답은
-  // {
-  //     data: {
-  //         "id": ,
-  //         "nickname": ,
-  //         "created_at": ,
-  //         "comment": ,
-  //         "postId": ,
-  //     },
-  //     message: "ok"
-  // }
-  // 이런 형식으로 보내준다.
 
   const postId = Number.parseInt(req.params["postid"]);
   const accessToken = checkAccessToken(req);
