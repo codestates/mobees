@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../icon/logo_v1.png";
+import logo from "../icon/logo_v2.png";
 import { Link, Route, Switch, useHistory } from "react-router-dom";
 
 const Footer = () => {
@@ -12,9 +12,9 @@ const Footer = () => {
           history.push("/");
         }}
       >
-        <img src={logo} className="app_logo" />
+        <img src={logo} className="app_logo_footer" />
       </div>
-      <div className="address">© Copyright ⓒ 2022 MoBeeS YeongYangJae</div>
+      <div className="address">© Copyright ⓒ 2022 MoBeeS</div>
     </div>
   );
 };
