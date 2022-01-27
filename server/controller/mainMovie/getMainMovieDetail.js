@@ -12,7 +12,14 @@ module.exports = async (req, res) => {
     where: {
       id: postId,
     },
-    attributes: ["id", "image", "total_likes", "total_comments", "movie_title"],
+    attributes: [
+      "id",
+      "image",
+      "total_likes",
+      "total_comments",
+      "movie_title",
+      "movie_review",
+    ],
   });
 
   if (!movie) {

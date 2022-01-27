@@ -1,7 +1,7 @@
 
 const { post } = require('../../models')
 const { posts_genres } = require('../../models')
-const { checkAccessToken } = require('../tokenFunctions')
+// const { checkAccessToken } = require('../tokenFunctions')
 
 module.exports = async (req, res) => {
   
@@ -28,12 +28,11 @@ module.exports = async (req, res) => {
 
   try {
     await post.destroy({ where : { id : postId } })
+    await res.redirect(302, '/my-movies')
+    // res.status(200).json({ message : 'Deleted successfully'})
   }
   catch (err) {
     console.log(err)
     res.status(500).json({ message : 'Internal server error' })
   }
-  
-  // res.redirect('/my-movie/?1')
-  // res.status(200).json({ message : 'Deleted successfully'})
 };

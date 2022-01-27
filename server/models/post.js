@@ -14,14 +14,13 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       models.post.belongsToMany(models.genre, {
-        through: models.posts_genres,
-        foreignKey: "post_id",
-        onUpdate: "CASCADE",
-        onDelete: "CASCADE",
-        sourceKey: "id",
-      });
-
-      // models.post.sync({force: true, match: /_test$/});
+        through: "posts_genres", 
+        foreignKey: 'post_id',
+        onUpdate: 'CASCADE', 
+        onDelete: 'CASCADE', 
+        sourceKey: 'id'  
+      })
+      // models.post.sync({force: true, match: /_test$/}); 
     }
   }
   post.init(
@@ -31,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       image: {
-        type: DataTypes.BLOB,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       total_likes: {
@@ -59,6 +58,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       movie_seat: {
+        type: DataTypes.STRING,
+        allowNull: false,
+      },
+      movie_review: {
         type: DataTypes.STRING,
         allowNull: false,
       },
