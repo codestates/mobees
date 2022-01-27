@@ -10,17 +10,17 @@ module.exports = async (req, res) => {
   const start = pageAsNumber * size;
 
   const jwt = checkAccessToken(req)
-  const { email } = jwt
-
+  
   if (!jwt) {
     res.status(401).json( { data : null, message : 'Not authorized' })
   }
   
+  const { email } = jwt
   if (email) {
     const userData = await user.findOne({
       where : {
         email
-      }
+      },
     }).catch(err => console.log(err))
 
     const usersPosts = await user.findAll({
