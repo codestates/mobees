@@ -11,7 +11,6 @@ const Login_div = styled.div`
   left: 0;
   background: rgba(0, 0, 0, 0.8);
   z-index: 100;
-  
 
   > .loginmodal {
     width: 480px;
@@ -43,38 +42,39 @@ const Login_div = styled.div`
         height: 35px;
         margin: 10px auto;
         outline: none;
-        border: 1px solid rgb(0,0,0,0.3);
+        border: 1px solid rgb(0, 0, 0, 0.3);
       }
       > .password {
         width: 252px;
         height: 35px;
         margin: 5px auto 15px auto;
-        border: 1px solid rgb(0,0,0,0.3);
+        border: 1px solid rgb(0, 0, 0, 0.3);
       }
 
       > .sign_div {
         width: 257px;
         height: 40px;
-        border-radius: 3px;
-        margin: 5px auto 30px auto;
+        /* border-radius: 3px; */
+        margin: 15px auto 30px auto;
+        box-sizing: border-box;
         cursor: pointer;
         line-height: 40px;
         border-radius: 20px;
         font-weight: 600;
-        font-size: 14px;
+        font-size: 15px;
         text-align: center;
         cursor: pointer;
-        background-color: rgb(0,0,0,0.1);
-        color:  rgb(0,0,0,0.5);
-        &:hover{
+        background-color: rgb(0, 0, 0, 0.1);
+        color: rgb(0, 0, 0, 0.5);
+        &:hover {
           background-color: #ffd900;
-          color:#2b2828;
+          color: #2b2828;
         }
       }
-      .line{
+      .line {
         width: 257px;
         height: 1px;
-        background-color:  rgb(0,0,0,0.2);
+        background-color: rgb(0, 0, 0, 0.2);
       }
       > .join {
         width: 257px;
@@ -104,13 +104,13 @@ const Login_div = styled.div`
         .git_icon {
           position: absolute;
           top: 8px;
-          left :60px;
+          left: 60px;
           width: 20px;
           display: inline-block;
         }
         p {
           float: right;
-          width:230px;
+          width: 230px;
           line-height: 40px;
         }
       }
@@ -186,7 +186,21 @@ const Login = ({ closeModal, setIsLogin, LoginData }) => {
               }
             }}
           />
-          <div className="sign_div">LOGIN</div>
+          <div
+            className="sign_div"
+            onClick={(e) => {
+              if (
+                idValue === LoginData.email &&
+                passwordValue === LoginData.password
+              ) {
+                setIsLogin(true);
+                history.push("/");
+                closeModal(e);
+              }
+            }}
+          >
+            LOGIN
+          </div>
           <div className="line"></div>
           <div
             className="join"
@@ -216,7 +230,7 @@ const Login = ({ closeModal, setIsLogin, LoginData }) => {
                 marginTop: "0px",
               }}
             >
-               <img className="git_icon" src={github_icon} />
+              <img className="git_icon" src={github_icon} />
               GitHub 로그인
             </p>
           </div>
