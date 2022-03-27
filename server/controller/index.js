@@ -1,0 +1,18 @@
+module.exports = {
+    login: require('./auth/login'), 
+    logout: require('./auth/logout'), 
+    signup: require('./auth/signup'), 
+    githupAccessToken: require('./auth/githubAccessToken'),
+    getUserInfo: require('./user/userInfo'), 
+    modifyInfo: require('./user/modifyInfo'),                
+    deleteInfo: require('./user/deleteInfo'),               
+    posting: require('./posting/upload'),                   
+    deletePosting: require('./posting/deletePosting'),      
+    comment: require('./posting/comment'), 
+    like: require('./posting/like'), 
+    getMainMovie: require('./mainMovie/getMainMovie'), 
+    getGenreMovie: require('./mainMovie/getGenreMovie'), 
+    getMainMovieDetail: require('./mainMovie/getMainMovieDetail'), 
+    getMyMovie: require('./myMovie/getMyMovie'), 
+    getMyMovieDetail: require('./myMovie/getMyMovieDetail'), 
+  };

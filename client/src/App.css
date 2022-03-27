@@ -1,0 +1,231 @@
+/* header------------------------------------------*/
+.header {
+  width: 100%;
+  height: 90px;
+  box-shadow: 0px 0px 10px #ddd;
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  z-index: 100; /* 수정부분 */
+}
+
+.header_div {
+  width: 1024px;
+  height: 65px;
+  /* background-color: brown; */
+  /* background-color: darkorchid; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.header_div > div {
+  float: left;
+}
+
+.header_left {
+  width: auto;
+  height: 65px;
+  /* border: 1px solid #8b8585; */
+  cursor: pointer;
+}
+.header_right {
+  width: 180px;
+  height: 65px;
+  position: absolute;
+  right: 0;
+  /* background-color: rgb(59, 111, 59, 0.5); */
+  box-sizing: border-box;
+}
+.header_right > div {
+  float: left;
+  padding-top: 10px;
+  padding-left: 20px;
+}
+.login {
+  width: 58%;
+  height: 40px;
+  margin-left: 22px;
+  margin-top: 12px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+/* 작성부분 시작*/
+.app_logo {
+  height: 40px;
+  padding-top: 10px;
+}
+.login_btn {
+  width: 100%;
+}
+.profile_img_box {
+  position: absolute;
+  right: 0;
+  padding-left: -20px;
+  cursor: pointer;
+}
+.profile_btn {
+  width: 40px;
+}
+.down_arrow {
+  width: 8px;
+  height: 10px;
+  padding-left: 5px;
+  padding-bottom: 13px;
+  opacity: 0.5;
+}
+
+.profile_img_box:hover > .down_arrow {
+  opacity: 1;
+}
+
+.search {
+  width: 40px;
+  height: 65px;
+  box-sizing: border-box;
+}
+.search_icon {
+  display: inline-block;
+  height: 34px;
+  position: absolute;
+  left: 0;
+  top: 15px;
+  cursor: pointer;
+}
+.posting {
+  margin-left: 25px;
+  width: 40px;
+  height: 65px;
+  box-sizing: border-box;
+}
+.posting_icon {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 43px;
+  height: 43px;
+  position: relative;
+  left: -24px;
+  cursor: pointer;
+}
+/* 작성부분 끝*/
+
+.section {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding-top: 91px;
+  /* padding-bottom: 80px; */
+  /* background-color: #86aab3; */
+}
+
+/* gerne------------------------------------------*/
+
+.gerne {
+  width: 100%;
+  height: 15vh;
+  /* background-color: darkorange; */
+  position: relative;
+}
+
+.slides.animated {
+  transition: 0.5s ease-out;
+}
+/* 
+.more {
+  width: 60px;
+  height: 90px;
+  font-size: 20px;
+  line-height: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin: 50px auto 65px auto;
+  background-color: blue;
+} */
+
+.footer {
+  box-shadow: 0px 0px 3px #ddd;
+  width: 100%;
+  height: 140px;
+  box-shadow: 0px 0px 10px #ddd;
+  background-color: rgb(255, 255, 255);
+  /* position: relative; */
+}
+
+.bottom_logo {
+  width: 100px;
+  height: 30px;
+  margin: 10px auto;
+  /* border: 1px solid #8b8585; */
+  padding-top: 43px;
+  /* background-size: contain; */
+  /* position: relative; */
+  /* background-color: rgb(73, 154, 154); */
+  /* position: absolute; */
+  /* position: absolute; */
+  /* top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+}
+
+.app_logo_footer {
+  width: 100px;
+  height: 30px;
+  background-size: contain;
+  /* box-sizing: border-box; */
+  /* position: absolute; */
+  /* left: 25px; */
+  /* bottom: 0; */
+
+  opacity: 0.6;
+}
+
+/* 작성부분 시작*/
+.address {
+  line-height: 1.2;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 12px;
+  font-size: 11px;
+  opacity: 0.6;
+  color: rgb(123, 123, 123);
+  /* background-color: rgb(41, 133, 167); */
+}
+
+.profile_div {
+  max-width: 1024px;
+  height: 160px;
+  margin: 70px auto;
+  border-bottom: 1px solid #8b8585;
+}
+
+.more {
+  width: 60px;
+  height: 20px;
+  text-align: center;
+  margin: 60px auto 100px auto;
+  cursor: pointer;
+}
+
+.loding {
+  width: 100%;
+  /* overflow: hidden; */
+  /* background-color: bisque; */
+  height: 20px;
+  text-align: center;
+  margin: 60px auto 100px auto;
+  cursor: pointer;
+}
+
+.post {
+  width: 60px;
+  height: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  margin: 56px auto;
+  cursor: pointer;
+  text-align: center;
+}
+/* 작성부분 끝*/
